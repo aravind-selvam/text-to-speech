@@ -1,0 +1,33 @@
+application_config:
+  app_name: text_to_speech
+  artifact_dir: artifact
+  audio_dir: tts_audio
+  text_dir: tts_text
+
+accent_config:
+  accent_list:
+    - Australian, 
+    - American 
+    - British
+    - Indian 
+    - Canadian 
+    - Irish
+    - Spanish
+
+  input_config:
+    Australian: 1
+    American: 2
+    British: 3
+    Indian: 4
+    Canadian: 5
+    Irish: 6
+    Spanish: 7
+
+  map_config:
+    1: com.au
+    2: com
+    3: co.uk
+    4: co.in
+    5: ca
+    6: ie
+    7: es
