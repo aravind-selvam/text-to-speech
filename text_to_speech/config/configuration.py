@@ -12,7 +12,7 @@ class TTSconfig:
                  current_time_stamp:str = CURRENT_TIME_STAMP
         ) -> None:
         try:
-            self.config_info = read_yaml_file(file_path= CONFIG_FILE_PATH)
+            self.config_info = read_yaml_file(file_path= config_file_path)
         except Exception as e:
             raise TTSException(e, sys)from e 
     

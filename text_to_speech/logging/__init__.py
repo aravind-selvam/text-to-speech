@@ -16,7 +16,7 @@ file_name = f"log_{CURRENT_TIME_STAMP}.log"
 log_file_path = os.path.join(LOG_DIR, file_name)
 
 # Create and configure logging
-logging.basicConfig(level=logging.DEBUG,
+logging.basicConfig(level=logging.INFO,
                     filename=log_file_path,
                     format='%(asctime)s %(levelname)s %(module)s ====> %(message)s',
                     datefmt="%d-%m-%Y %H:%M")

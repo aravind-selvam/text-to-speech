@@ -4,8 +4,8 @@ import sys
 
 def get_accent_message():
     try:
-        accent = ['1) Australian ', '2) American', '3) British',
-                '4) Indian', '5) Canadian', '6) Irish', '7) Spanish']
+        accent = ['Australian', 'South Africa', 'British',
+                'Indian', 'Canadian', 'Irish', 'Spanish']
         return accent
     except Exception as e:
         raise TTSException(e, sys)from e
@@ -15,7 +15,7 @@ def get_accent_tld(user_input):
     try:
         accent_input = {
             'Australian': 1,
-            'American': 2,
+            'South Africa': 2,
             'British': 3,
             'Indian': 4,
             'Canadian': 5,
@@ -26,7 +26,7 @@ def get_accent_tld(user_input):
         # Map the input
         accent_map = {
             1: 'com.au',
-            2: 'com',
+            2: 'co.za',
             3: 'co.uk',
             4: 'co.in',
             5: 'ca',

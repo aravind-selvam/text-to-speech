@@ -32,10 +32,8 @@ def predict():
     try:
         if request.method == 'POST':
             data = request.json['data']
-            # input1 = request.form.get('accent')
-            # print(input1)
-            # print(data)
-            accent = get_accent_tld('American')
+            accent_input = request.json['accent']
+            accent = get_accent_tld(accent_input)
             result = TTSapplication().text2Speech(data, accent)
             return {"data": result.decode("utf-8")}
     except Exception as e:
@@ -58,6 +56,11 @@ def predict_json_endpoint():
         message = get_accent_message()
         return jsonify({"Check your input": message})
 
+def main():
+    data = "hello world"
+    accent = get_accent_tld('American')
+    result = TTSapplication().text2Speech(data, accent)
+    return
 
 if __name__ == "__main__":
     app.run(debug=True, port=int(os.getenv("PORT", 5000)))

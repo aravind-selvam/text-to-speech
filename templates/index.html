@@ -232,7 +232,7 @@
 						<label for="accent">Select English Accent</label>
 						<select class="form-id" id="form-id-accent" name="accent" placeholder="accent" required="required"
 							>
-							<option value="" disabled selected>Which accent do you want?</option>
+							<option value="" disabled selected>Which English accent do you want?</option>
 							{% for accent in accent_list %}
 							<option value="{{accent}}">{{accent}}</option>
 							{% endfor %}
@@ -269,6 +269,7 @@
 			$("#fetch").click(function (e) {
 				e.preventDefault();
 				var input = $('#comment').val();
+				var val = $('#form-id-accent').val();
 				$('#loading').show();
 				$.ajax({
 					url: "../predict",   //change url
@@ -281,7 +282,7 @@
 						'Content-Type': 'application/json;charset=UTF-8',
 						"Access-Control-Allow-Origin": "*"
 					},
-					data: JSON.stringify({data: input}),
+					data: JSON.stringify({data: input, accent:val}),
 					success: function (response) {
 						$(".json-result").html("");
 						$(".json-result").html('<audio id="audio" controls="controls"><source id="audioSource" src=""></source>Your browser does not support the audio format.</audio>');
