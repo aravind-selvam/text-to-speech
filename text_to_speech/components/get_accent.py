@@ -3,6 +3,10 @@ from text_to_speech.exception import TTSException
 import sys
 
 def get_accent_message():
+    """
+    Returns:
+      A list of accents
+    """
     try:
         accent = ['Australian', 'South Africa', 'British',
                 'Indian', 'Canadian', 'Irish', 'Spanish']
@@ -12,6 +16,15 @@ def get_accent_message():
 
 
 def get_accent_tld(user_input):
+    """
+    It takes a user input, maps it to a number, and then returns the corresponding top level domain
+    
+    Args:
+      user_input: The user input from the Web Ui
+    
+    Returns:
+      The accent code
+    """
     try:
         accent_input = {
             'Australian': 1,

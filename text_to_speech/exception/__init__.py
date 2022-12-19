@@ -3,8 +3,11 @@ import os
 
 def error_message_detail(error, error_detail):
     """
+    It takes an error and an error detail and returns a string with the file name, line number, and
+    error message
+    
     Returns:
-        str: Detail of an error with line number and error message
+      The error message is being returned.
     """
     _, _, exc_tb = error_detail.exc_info()
     file_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
@@ -14,12 +17,10 @@ def error_message_detail(error, error_detail):
 
     return error_message
 
+# It's a custom exception class that takes an error message and an error detail and returns a formatted error message
 class TTSException(Exception):
 
     def __init__(self, error_message, error_detail):
-        """
-        param error_message: error message in string format
-        """
         super().__init__(error_message)
         self.error_message = error_message_detail(
             error_message, error_detail=error_detail)

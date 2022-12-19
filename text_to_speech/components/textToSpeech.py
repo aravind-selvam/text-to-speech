@@ -4,22 +4,18 @@ import base64
 import datetime
 from gtts import gTTS
 from text_to_speech.constants import *
-from text_to_speech.entity.config_entity import App_config
-from text_to_speech.config.configuration import TTSconfig
+from text_to_speech.entity.config_entity import TTSConfig
 from text_to_speech.logging import logger
 from text_to_speech.exception import TTSException
+from text_to_speech.entity.config_entity import TTSConfig
 
 class TTSapplication:
-    """
-    TTS application is a simple application for converting text to speech.
-    It uses gTTS open source library to convert text to speech.
-    """        
-    def __init__(self, app_config=TTSconfig(), time_stamp=CURRENT_TIME_STAMP ):
+    def __init__(self, app_config=TTSConfig()):
         """
-        Initialize the application
+        Initializes the application by loading the application configuration.
         """
         try:
-            self.app_info = app_config.get_app_config()
+            self.app_info = app_config
             self.artifact_dir = self.app_info.artifact_dir
             self.audio_dir = self.app_info.audio_dir
             self.text_dir = self.app_info.text_dir
@@ -30,14 +26,15 @@ class TTSapplication:
         
     def text2Speech(self, data, accent):
         """
-        text2Speech
+        It takes in a Text string and an accent, writes the string to a text file, creates a gTTS object, saves
+        the gTTS object as an mp3 file, and then returns the mp3 file as a base64 encoded string
         
         Args:
-            data (str): Give text data which has to be converted to speech
-            accent (int): The accent input is given in tld format
-
+          data: The text that you want to convert to speech.
+          accent: This is the accent of the voice.
+        
         Returns:
-            Encoded string of the audio
+          The return value is a base64 encoded string.
         """
         try:
             my_text = data

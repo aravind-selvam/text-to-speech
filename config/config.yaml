@@ -1,5 +1,0 @@
-application_config:
-  app_name: text_to_speech
-  artifact_dir: artifact
-  audio_dir: tts_audio
-  text_dir: tts_text
